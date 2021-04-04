@@ -6,13 +6,148 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <EditText
+        android:id="@+id/txtfecha"
+        android:layout_width="350dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
+        android:ems="10"
+        android:hint="Ingrese Fecha"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/txtreferencia"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnBuscar" />
+
+    <Button
+        android:id="@+id/btneditar"
+        android:layout_width="335dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="5dp"
+        android:text="Editar"
+        app:layout_constraintBottom_toTopOf="@+id/btneliminar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAgregar" />
+
+    <Button
+        android:id="@+id/btneliminar"
+        android:layout_width="331dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="73dp"
+        android:text="Eliminar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btneditar" />
+
+    <EditText
+        android:id="@+id/txtsolicitadopor"
+        android:layout_width="341dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="23dp"
+        android:ems="10"
+        android:hint="Ingrese Solicitado por"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/btnAgregar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtestado" />
+
+    <EditText
+        android:id="@+id/txtdescripcion"
+        android:layout_width="341dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="17dp"
+        android:ems="10"
+        android:hint="Ingrese Descripcion"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/txtestado"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtreferencia" />
+
     <TextView
+        android:id="@+id/textView"
+        android:layout_width="159dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginBottom="29dp"
+        android:text="Ingreso Ticket"
+        app:layout_constraintBottom_toTopOf="@+id/btnBuscar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnAgregar"
+        android:layout_width="344dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="7dp"
+        android:text="Agregar"
+        app:layout_constraintBottom_toTopOf="@+id/btneditar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtsolicitadopor" />
+
+    <EditText
+        android:id="@+id/txtestado"
+        android:layout_width="341dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="19dp"
+        android:ems="10"
+        android:hint="Ingrese Estado"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/txtsolicitadopor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtdescripcion" />
+
+    <EditText
+        android:id="@+id/txtid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginBottom="17dp"
+        android:ems="10"
+        android:hint="Ingrese id"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/txtfecha"
+        app:layout_constraintEnd_toStartOf="@+id/btnBuscar"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnBuscar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="17dp"
+        android:text="Buscar"
+        app:layout_constraintBottom_toTopOf="@+id/txtfecha"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/txtid"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <EditText
+        android:id="@+id/txtreferencia"
+        android:layout_width="344dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="15dp"
+        android:ems="10"
+        android:hint="Ingrese Referencia"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/txtdescripcion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtfecha" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
