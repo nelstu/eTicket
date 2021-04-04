@@ -21,19 +21,19 @@
         app:layout_constraintTop_toBottomOf="@+id/btnBuscar" />
 
     <Button
-        android:id="@+id/btneditar"
+        android:id="@+id/btnEditar"
         android:layout_width="335dp"
         android:layout_height="0dp"
         android:layout_marginBottom="5dp"
         android:text="Editar"
-        app:layout_constraintBottom_toTopOf="@+id/btneliminar"
+        app:layout_constraintBottom_toTopOf="@+id/btnEliminar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnAgregar" />
 
     <Button
-        android:id="@+id/btneliminar"
+        android:id="@+id/btnEliminar"
         android:layout_width="331dp"
         android:layout_height="0dp"
         android:layout_marginBottom="73dp"
@@ -42,7 +42,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btneditar" />
+        app:layout_constraintTop_toBottomOf="@+id/btnEditar" />
 
     <EditText
         android:id="@+id/txtsolicitadopor"
@@ -91,7 +91,7 @@
         android:layout_height="0dp"
         android:layout_marginBottom="7dp"
         android:text="Agregar"
-        app:layout_constraintBottom_toTopOf="@+id/btneditar"
+        app:layout_constraintBottom_toTopOf="@+id/btnEditar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"

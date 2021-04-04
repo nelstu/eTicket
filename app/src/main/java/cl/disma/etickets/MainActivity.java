@@ -27,7 +27,7 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
     EditText txtid,txtfecha,txtreferencia,txtdescripcion,txtestado,txtsolicitadopor;
-    Button btnAgregar,btneditar,btneliminar,btnBuscar;
+    Button btnAgregar,btnEditar,btnEliminar,btnBuscar;
     RequestQueue requestQueue;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
         txtsolicitadopor=(EditText)findViewById(R.id.txtsolicitadopor);
         btnAgregar=(Button)findViewById(R.id.btnAgregar) ;
         btnBuscar=(Button)findViewById(R.id.btnBuscar) ;
+        btnEditar=(Button)findViewById(R.id.btnEditar) ;
+        btnEliminar=(Button)findViewById(R.id.btnEliminar) ;
 
         btnAgregar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,6 +57,18 @@ public class MainActivity extends AppCompatActivity {
                 buscarTicket("http://www.iqcontapro.cl/Tickets/android/buscar_ticket.php?id="+txtid.getText());
             }
         });
+        btnEditar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ejecutarServicio("http://www.iqcontapro.cl/Tickets/android/update_ticket.php");
+            }
+        });
+        btnEliminar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                eliminarServicio("http://www.iqcontapro.cl/Tickets/android/eliminar_ticket.php");
+            }
+        });
 
     }
 
@@ -65,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 Toast.makeText(getApplicationContext(), "Operacion Exitosa", Toast.LENGTH_SHORT).show();
+               limpiar();
             }
         }, new Response.ErrorListener() {
             @Override
@@ -75,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             protected Map<String,String> getParams() throws AuthFailureError {
                 Map<String,String> parametros=new HashMap<String,String>();
+                parametros.put("id",txtid.getText().toString());
                 parametros.put("fecha",txtfecha.getText().toString());
                 parametros.put("referencia",txtreferencia.getText().toString());
                 parametros.put("descripcion",txtdescripcion.getText().toString());
@@ -88,6 +104,47 @@ public class MainActivity extends AppCompatActivity {
         requestQueue.add(stringRequest);
 
     }
+
+    private void eliminarServicio(String URL){
+        StringRequest stringRequest=new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+
+
+            @Override
+            public void onResponse(String response) {
+                Toast.makeText(getApplicationContext(), "Eliminado", Toast.LENGTH_SHORT).show();
+                limpiar();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_SHORT).show();
+            }
+        }){
+            @Override
+            protected Map<String,String> getParams() throws AuthFailureError {
+                Map<String,String> parametros=new HashMap<String,String>();
+                parametros.put("id",txtid.getText().toString());
+                return parametros;
+
+            }
+        };
+        requestQueue= Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+
+    }
+
+
+     private void limpiar(){
+        txtid.setText("");
+         txtfecha.setText("");
+         txtreferencia.setText("");
+         txtdescripcion.setText("");
+         txtestado.setText("");
+         txtsolicitadopor.setText("");
+
+
+    }
+
 
     private void buscarTicket(String URL){
         JsonArrayRequest jsonArrayRequest=new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
